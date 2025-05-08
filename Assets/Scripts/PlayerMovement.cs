@@ -4,25 +4,22 @@ using System.Collections;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float velocity = 5f;// Una variable publica se puede modificar desde el edigor de unity
-    public float jumpVel = 10f;
+    public float velocity = 5f; //Velocidad del jugador
+    public float jumpVel = 10f; //Velocidad del salto
+    private bool isJumping;
 
-    private Vector2 movement;
-    private Rigidbody2D rb;
+    private Vector2 movement; //Vector para saber la direccion del movimiento del jugador
+    private Rigidbody2D rb; //Rigidbody
 
-    public Animator animator;
+    public Animator animator; //Animator
 
-    public LayerMask GroundLayer;
-    private bool isGrounded;
-    public Transform groundCheckPoint;
-    public float radius;
+    public LayerMask GroundLayer; //Detectar objetos con cierta layer puesta
 
-    //private float coyoteTime = 0.2f;
-    //private float coyoteTimeCounter;
+    public Transform groundCheckPoint; //Punto donde se dibuja la esfera para checar si el jugador esta en el suelo
+    public float radius; //Radio de la esfera mencionada
 
-    //private float jumpBufferTime = 0.2f;
-    //private float jumpBufferCounter;
-
+    private float coyoteTime = 0.1f; //Tiempo que queremos que dure el coyote time
+    private float coyoteTimeCounter; //Contador con el que checamos el coyote time
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -33,11 +30,9 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        isGrounded = Physics2D.OverlapCircle(groundCheckPoint.position,radius,GroundLayer);
+        movement.x = Input.GetAxisRaw("Horizontal"); // recibir input de derecha o izquierda
 
-        movement.x = Input.GetAxisRaw("Horizontal");
-        transform.Translate(movement * velocity * Time.deltaTime);
-
+        /*
         if (movement.x < 0)
         {
             //transform.localScale = new Vector3(-1, 1, 1);
@@ -49,40 +44,58 @@ public class PlayerMovement : MonoBehaviour
 
         //animator.SetBool("onFloor", isGrounded);
         //animator.SetFloat("movement", movement.x);
+        */
 
-
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (isGrounded()) //Coyote time related stuff
         {
-            Jump();
+            coyoteTimeCounter = coyoteTime;
         }
         else
         {
-            movement.x = 0f;
+            coyoteTimeCounter -= Time.deltaTime;
         }
-        
-        if (Input.GetKeyDown(KeyCode.R))
+
+        if (Input.GetKeyDown(KeyCode.Space) && coyoteTimeCounter > 0f && !isJumping) //jump action
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Jump();
+            coyoteTimeCounter = 0f;
+            StartCoroutine(JumpCooldown());
         }
+        /*else
+        {
+            movement.x = 0f;
+        }*/
     }
 
     private void FixedUpdate()
     {
-        
+        transform.Translate(movement * velocity * Time.deltaTime); //mover el jugador de derecha a izquierda
     }
 
-    void Jump()
+    private bool isGrounded() // funcion para checar si el jugador esta en el piso
+    {
+        return Physics2D.OverlapCircle(groundCheckPoint.position, radius, GroundLayer);
+    }
+
+    private void Jump() // funcion para saltaar
     {
         rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpVel);
         //animator.SetBool("onFloor", false);
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    private IEnumerator JumpCooldown() //cooldown para el salto
+    {
+        isJumping = true;
+        yield return new WaitForSeconds(0.4f);
+        isJumping = false;
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision) //cosilla puesta pa ver si esta colisionado el jugador XD
     {
         Debug.Log("Colison");
     }
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmos() // gizmo para checar el circulo que se usa en la funcion isGrounded
     {
         Gizmos.color = Color.magenta;
         Gizmos.DrawWireSphere(groundCheckPoint.position, radius);
