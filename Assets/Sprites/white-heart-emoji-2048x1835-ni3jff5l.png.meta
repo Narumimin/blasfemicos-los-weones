@@ -147,7 +147,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      white-heart-emoji-2048x1835-ni3jff5l_0: 9109551330646756381
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
