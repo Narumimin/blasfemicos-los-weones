@@ -13,7 +13,7 @@ public class HealthController : MonoBehaviour
 
     private PlayerMovement Player;
     public GameObject deathPannel;
-    private Sounds Sounds;
+    //private Sounds Sounds;
 
     [SerializeField] private Image[] hearts; // pa los corazones meanwhile
     
