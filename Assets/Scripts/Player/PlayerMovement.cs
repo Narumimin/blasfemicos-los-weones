@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections;
+using Unity.VisualScripting;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement; //Vector para saber la direccion del movimiento del jugador
     private Rigidbody2D rb; //Rigidbody
 
-    public Animator animator; //Animator
+    //public Animator animator; //Animator
 
     public LayerMask GroundLayer; //Detectar objetos con cierta layer puesta
 
@@ -21,15 +22,19 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTime = 0.1f; //Tiempo que queremos que dure el coyote time
     private float coyoteTimeCounter; //Contador con el que checamos el coyote time
 
+    //private Sounds sounds;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        //sounds = GetComponent<Sounds>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        rb.WakeUp();
         movement.x = Input.GetAxisRaw("Horizontal"); // recibir input de derecha o izquierda
 
         /*
@@ -57,14 +62,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && coyoteTimeCounter > 0f && !isJumping) //jump action
         {
+            //sounds.jump();
             Jump();
             coyoteTimeCounter = 0f;
             StartCoroutine(JumpCooldown());
         }
-        /*else
-        {
-            movement.x = 0f;
-        }*/
     }
 
     private void FixedUpdate()
