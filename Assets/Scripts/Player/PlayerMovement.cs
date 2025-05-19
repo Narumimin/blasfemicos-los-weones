@@ -22,6 +22,16 @@ public class PlayerMovement : MonoBehaviour
     private float coyoteTime = 0.1f; //Tiempo que queremos que dure el coyote time
     private float coyoteTimeCounter; //Contador con el que checamos el coyote time
 
+    [Header("ledgeInfo")]
+    [HideInInspector] public bool ledgeDetected;
+    [SerializeField] private Vector2 offset1;
+    [SerializeField] private Vector2 offset2;
+    private Vector2 climbBegunPosition;
+    private Vector2 climbOverPosition;
+
+    private bool canGrabLedge = true;
+    private bool canClimb;
+
     //private Sounds sounds;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -37,16 +47,16 @@ public class PlayerMovement : MonoBehaviour
         rb.WakeUp();
         movement.x = Input.GetAxisRaw("Horizontal"); // recibir input de derecha o izquierda
 
-        /*
+        
         if (movement.x < 0)
         {
-            //transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-1, 1, 1);
         }
         else if (movement.x > 0)
         {
-            //transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(1, 1, 1);
         }
-
+        /*
         //animator.SetBool("onFloor", isGrounded);
         //animator.SetFloat("movement", movement.x);
         */
@@ -67,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimeCounter = 0f;
             StartCoroutine(JumpCooldown());
         }
+
+        CheckForLedge();
     }
 
     private void FixedUpdate()
@@ -90,6 +102,41 @@ public class PlayerMovement : MonoBehaviour
         isJumping = true;
         yield return new WaitForSeconds(0.4f);
         isJumping = false;
+    }
+
+    private void CheckForLedge()
+    {
+        if(ledgeDetected && canGrabLedge)
+        {
+            canGrabLedge = false;
+            Vector2 ledgePosition = GetComponentInChildren<LerdgeCheck>().transform.position;
+
+            if (movement.x < 0)
+            {
+                climbBegunPosition = ledgePosition + new Vector2 (-offset1.x , offset1.y);
+                climbOverPosition = ledgePosition + new Vector2(-offset2.x, offset2.y);
+            }
+            else if (movement.x > 0)
+            {
+                climbBegunPosition = ledgePosition + offset1;
+                climbOverPosition = ledgePosition + offset2;
+            }
+
+            canClimb = true;
+        }
+
+        if (canClimb) 
+        {
+            transform.position = climbBegunPosition;
+            Invoke("LedgeClimbOver", 0.5f);
+        }
+    }
+
+    private void LedgeClimbOver()
+    {
+        canClimb = false;
+        transform.position = climbOverPosition;
+        canGrabLedge = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision) //cosilla puesta pa ver si esta colisionado el jugador XD
