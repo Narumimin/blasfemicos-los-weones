@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 movement; //Vector para saber la direccion del movimiento del jugador
     private Rigidbody2D rb; //Rigidbody
 
-    //public Animator animator; //Animator
+    public Animator animator; //Animator
 
     public LayerMask GroundLayer; //Detectar objetos con cierta layer puesta
 
