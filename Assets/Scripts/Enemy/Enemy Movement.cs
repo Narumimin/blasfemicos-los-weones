@@ -13,7 +13,7 @@ public class EnemyMovement : MonoBehaviour
     private int currentPoint;
     private int nextPoint;
     public GameObject wheelAttack;
-    //public Animator animator;
+    public Animator animator;
     private int i; //incrementador
     private EnemySounds sounds;
 
@@ -53,6 +53,7 @@ public class EnemyMovement : MonoBehaviour
             }
             else if (nextPoint == 2)
             {
+                animator.SetTrigger("Throw");
                 sounds.throwWheel();
                 GameObject instanceObject = Instantiate(wheelAttack);
                 instanceObject.GetComponent<Wheel>().isSpawned = true;

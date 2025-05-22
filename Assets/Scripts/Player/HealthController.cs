@@ -22,6 +22,7 @@ public class HealthController : MonoBehaviour
     public GameObject deathPannel;
     private Sounds Sounds;
     public AudioSource AudioSource;
+    public Animator animator;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -77,6 +78,7 @@ public class HealthController : MonoBehaviour
         {
             if (flasks > 0)
             {
+                animator.SetTrigger("heal");
                 flasks--;
                 health += flaskHeal;
             }

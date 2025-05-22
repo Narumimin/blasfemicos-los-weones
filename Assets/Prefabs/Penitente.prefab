@@ -329,10 +329,10 @@ MonoBehaviour:
   flaskImages:
   - {fileID: 0}
   - {fileID: 0}
-  emptyflask: {fileID: 0}
   slider: {fileID: 0}
   deathPannel: {fileID: 0}
   AudioSource: {fileID: 0}
+  animator: {fileID: 5494578502795333900}
 --- !u!114 &4892510546117078673
 MonoBehaviour:
   m_ObjectHideFlags: 0
