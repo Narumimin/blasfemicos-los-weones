@@ -3,6 +3,7 @@ using UnityEngine;
 public class Enemigo : MonoBehaviour
 {
     private BoxCollider2D BoxCollider2D;
+    public int damage;
 
     private void Start()
     {
@@ -21,7 +22,7 @@ public class Enemigo : MonoBehaviour
             var healthComponent = collision.GetComponent<HealthController>();
             if (healthComponent != null)
             {
-                healthComponent.TakeDamage(1);
+                healthComponent.TakeDamage(damage);
             }
         }
     }

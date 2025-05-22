@@ -6,30 +6,44 @@ public class PlayerAttack : MonoBehaviour
     public Transform attackPoint;
     public float attackRadius = 1;
     public LayerMask attackableLayer;
-    public float damage = 1f;
+    public int damage;
     public float timeBetweenAttacks = 0.3f;
     private PlayerMovement Player;
     private float attackTimeCounter;
+    private Sounds sounds;
 
     private void Start()
     {
         Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         attackTimeCounter = timeBetweenAttacks;
+        sounds = GameObject.FindGameObjectWithTag("Player").GetComponent<Sounds>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.K)) //&& attackTimeCounter >= timeBetweenAttacks)
+        if (Input.GetKeyDown(KeyCode.K) && attackTimeCounter >= timeBetweenAttacks)
         {            
             attackTimeCounter = 0f;
-            //Player.animator.SetTrigger("Attacking");
-            Attack();
+            sounds.attack();
+            Player.animator.SetTrigger("attacking");
         }
         attackTimeCounter += Time.deltaTime;
     }
 
-    private void Attack()
+    public void DashNotAllowed()
+    {
+        Player.canDash = false;
+        Player.isDashing = true;
+    }
+
+    public void DashAllower()
+    {
+        Player.canDash = true;
+        Player.isDashing = false;
+    }
+
+    public void Attack()
     {
         
         Collider2D[] hits = Physics2D.OverlapCircleAll(attackPoint.position, attackRadius, attackableLayer);
@@ -37,6 +51,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (hit.GetComponent<EnemyHealth>() != null)
             {
+                sounds.hit();
                 hit.GetComponent<EnemyHealth>().health -= damage;
                 //hit.GetComponent<EnemyHealth>().animator.SetTrigger("Damage");
             }
