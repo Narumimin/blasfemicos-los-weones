@@ -679,6 +679,17 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &88587684 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3078607404658905951, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
+  m_PrefabInstance: {fileID: 2292386301106136426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &97268422
 GameObject:
   m_ObjectHideFlags: 0
@@ -1243,6 +1254,17 @@ Transform:
   - {fileID: 72311026}
   m_Father: {fileID: 938807206}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &189947072 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3529901721063343112, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
+  m_PrefabInstance: {fileID: 2292386301106136426}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &244630491
 GameObject:
   m_ObjectHideFlags: 0
@@ -17312,6 +17334,14 @@ PrefabInstance:
       propertyPath: deathPannel
       value: 
       objectReference: {fileID: 701537225}
+    - target: {fileID: 963995932550493315, guid: a7005783f06070e44a90321e3869ef10, type: 3}
+      propertyPath: 'flaskImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 88587684}
+    - target: {fileID: 963995932550493315, guid: a7005783f06070e44a90321e3869ef10, type: 3}
+      propertyPath: 'flaskImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 189947072}
     - target: {fileID: 2992132969496887594, guid: a7005783f06070e44a90321e3869ef10, type: 3}
       propertyPath: m_Name
       value: Penitente

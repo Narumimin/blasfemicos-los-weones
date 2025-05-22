@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -49,6 +50,8 @@ public class EnemyHealth : MonoBehaviour
         requiemAeternam.SetActive(true);
         yield return new WaitForSeconds(5f);
         requiemAeternam.SetActive(false);
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(3);
     }
 
 }

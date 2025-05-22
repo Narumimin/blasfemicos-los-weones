@@ -37,9 +37,9 @@ public class EnemyMovement : MonoBehaviour
         {
             Vector2 movement = transform.position - points[randomNumber].position;
             if (movement.x < 0)
-                transform.localScale = new Vector3(1f, 1f, 1f);
-            if (movement.x > 0)
                 transform.localScale = new Vector3(-1f, 1f, 1f);
+            if (movement.x > 0)
+                transform.localScale = new Vector3(1f, 1f, 1f);
             transform.position = Vector2.MoveTowards(transform.position, points[randomNumber].position, speed * Time.deltaTime); //Mueve el onjeto hacia uno de los puntos donde va a pasar
         }
 

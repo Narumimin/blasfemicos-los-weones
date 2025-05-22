@@ -2340,7 +2340,7 @@ Transform:
   m_GameObject: {fileID: 798613067}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.78, y: 0, z: -2.2577019}
+  m_LocalPosition: {x: 10.5, y: 1, z: -2.2577019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2492,7 +2492,7 @@ Transform:
   m_GameObject: {fileID: 901906774}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.52, y: 0, z: -2.2577019}
+  m_LocalPosition: {x: -4.5, y: 1, z: -2.2577019}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2650,6 +2650,18 @@ PrefabInstance:
       propertyPath: 'hearts.Array.data[5]'
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 963995932550493315, guid: a7005783f06070e44a90321e3869ef10, type: 3}
+      propertyPath: flaskImages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 963995932550493315, guid: a7005783f06070e44a90321e3869ef10, type: 3}
+      propertyPath: 'flaskImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 1451842366}
+    - target: {fileID: 963995932550493315, guid: a7005783f06070e44a90321e3869ef10, type: 3}
+      propertyPath: 'flaskImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1557125298}
     - target: {fileID: 2992132969496887594, guid: a7005783f06070e44a90321e3869ef10, type: 3}
       propertyPath: m_Name
       value: Penitente
@@ -2891,30 +2903,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 163357641306827635, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 163357641306827635, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 163357641306827635, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
-      propertyPath: m_Color.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 163357641306827635, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 163357641306827635, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
-      propertyPath: m_SortingOrder
-      value: 30
-      objectReference: {fileID: 0}
-    - target: {fileID: 503658157360829646, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 996223784218657581, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 1217.2
@@ -3015,14 +3003,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Health Related Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 7060636369178288518, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7759712912491900039, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7847621722016803713, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
       propertyPath: m_Camera
       value: 
@@ -3032,8 +3012,7 @@ PrefabInstance:
       value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 2118948117473095787, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
@@ -3042,6 +3021,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 503658157360829646, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
   m_PrefabInstance: {fileID: 1433783312}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1451842366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3078607404658905951, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
+  m_PrefabInstance: {fileID: 1433783312}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1557125298 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3529901721063343112, guid: 53c3a919bf86d3143bf84986c8a431ee, type: 3}
+  m_PrefabInstance: {fileID: 1433783312}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1627359373
 GameObject:
   m_ObjectHideFlags: 0
@@ -3676,13 +3677,29 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 4343053997682428131, guid: 637bf3df7a41d2048b42e5b80f603aed, type: 3}
+      propertyPath: m_Size.x
+      value: 2.0511856
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343053997682428131, guid: 637bf3df7a41d2048b42e5b80f603aed, type: 3}
+      propertyPath: m_Size.y
+      value: 1.5101979
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343053997682428131, guid: 637bf3df7a41d2048b42e5b80f603aed, type: 3}
+      propertyPath: m_Offset.x
+      value: 0.040673256
+      objectReference: {fileID: 0}
+    - target: {fileID: 4343053997682428131, guid: 637bf3df7a41d2048b42e5b80f603aed, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.60229766
+      objectReference: {fileID: 0}
     - target: {fileID: 5834903292340586787, guid: 637bf3df7a41d2048b42e5b80f603aed, type: 3}
       propertyPath: m_LocalPosition.x
       value: 11.77
       objectReference: {fileID: 0}
     - target: {fileID: 5834903292340586787, guid: 637bf3df7a41d2048b42e5b80f603aed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.36
+      value: 1.01
       objectReference: {fileID: 0}
     - target: {fileID: 5834903292340586787, guid: 637bf3df7a41d2048b42e5b80f603aed, type: 3}
       propertyPath: m_LocalPosition.z

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6028932350893719368}
   - component: {fileID: 4216389524839918048}
   - component: {fileID: 9075569177966665180}
+  - component: {fileID: 8107715974942758286}
   m_Layer: 6
   m_Name: Wheel
   m_TagString: Untagged
@@ -78,7 +79,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 711a73662030c1c489501c82a51afca3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -123,8 +124,8 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
-  m_Radius: 0.49999997
+  m_Offset: {x: 0, y: -0.12}
+  m_Radius: 1.23
 --- !u!114 &9075569177966665180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,3 +146,26 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   spawnPoint: {fileID: 5742612577086508296, guid: ab5d683948601144b8843abdbc6035dd, type: 3}
+  animator: {fileID: 8107715974942758286}
+--- !u!95 &8107715974942758286
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2421587072902560649}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: db57693592a41c14f9d08c7888dab684, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

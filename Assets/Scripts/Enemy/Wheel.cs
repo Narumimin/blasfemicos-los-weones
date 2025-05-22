@@ -13,7 +13,7 @@ public class Wheel : MonoBehaviour
     private Vector3 movement;
     private Vector3 originalPosition;
     public GameObject spawnPoint;
-    //public AudioClip attackClip;
+    public Animator animator;
 
     private void Start()
     {
@@ -56,7 +56,7 @@ public class Wheel : MonoBehaviour
     private IEnumerator EnemyCooldown()
     {
         isSpawned = false;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(0.8f);
         isGrounded = true;
     }
 

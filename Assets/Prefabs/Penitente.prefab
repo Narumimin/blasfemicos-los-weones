@@ -324,6 +324,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 150
   health: 0
+  flasks: 2
+  flaskHeal: 70
+  flaskImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  emptyflask: {fileID: 0}
   slider: {fileID: 0}
   deathPannel: {fileID: 0}
   AudioSource: {fileID: 0}

@@ -3,13 +3,19 @@ using UnityEngine.Rendering;
 using UnityEngine.UI;
 using System.Collections;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class HealthController : MonoBehaviour
 {
     public int maxHealth = 150; // vida total
     public int health; // vida actual
 
+    public int flasks = 2;
+    public int flaskHeal = 70;
+
     private bool takingDamage = false; //verificar si esta tomando daño pal cooldown de daño
+
+    public Image[] flaskImages;
 
     private PlayerMovement Player;
     public Slider slider;
@@ -61,7 +67,33 @@ public class HealthController : MonoBehaviour
 
     public void Update()
     {
+        if (health > maxHealth)
+        {
+            health = maxHealth;
+        }
+
         slider.value = health;
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            if (flasks > 0)
+            {
+                flasks--;
+                health += flaskHeal;
+            }
+        }
+
+        for (int i = 0; i < flaskImages.Length; i++)
+        {
+            if (i < flasks)
+            {
+                flaskImages[i] = flaskImages[i];
+            }
+            else
+            {
+                flaskImages[i].enabled = false;
+            }
+        }
+        
         if (Player.enabled == false)
         {
             if (Input.GetKeyDown(KeyCode.R))
